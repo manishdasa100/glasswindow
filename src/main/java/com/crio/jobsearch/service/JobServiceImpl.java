@@ -21,8 +21,7 @@ public class JobServiceImpl implements JobService {
         
         long expiryDuration = jobEntry.getExpiryDuration();
 
-        LocalDate currentDate = LocalDate.now();
-        LocalDate expiryDate = currentDate.plusDays(expiryDuration);
+        LocalDate expiryDate = LocalDate.now().plusDays(expiryDuration);
 
         String jobId = jobRepositoryService.saveJob(jobEntry, expiryDate);
         

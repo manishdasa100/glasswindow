@@ -29,6 +29,7 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-web'
     compileOnly 'org.projectlombok:lombok'
     compile group: 'org.modelmapper', name: 'modelmapper', version: '2.1.1'
+    compile group: 'javax.validation', name: 'validation-api', version: '2.0.1.Final'
 	developmentOnly 'org.springframework.boot:spring-boot-devtools'
     runtimeOnly 'com.h2database:h2'
     runtimeOnly 'mysql:mysql-connector-java'

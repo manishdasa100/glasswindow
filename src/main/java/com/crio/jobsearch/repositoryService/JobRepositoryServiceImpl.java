@@ -62,7 +62,7 @@ public class JobRepositoryServiceImpl implements JobRepositoryService {
         Query query = new Query(Criteria.where("location").is(location));
         List<Jobentity> allJobentities = mongoTemplate.find(query, Jobentity.class);
 
-        List<Jobdto> activeRelevantJobs = new ArrayList<Jobdto>();
+        List<Jobdto> activeRelevantJobs = new ArrayList<>();
 
         for (Jobentity jobentity : allJobentities) {
             if (isJobActiveAndRelavant(jobentity, candidateSkills)) {

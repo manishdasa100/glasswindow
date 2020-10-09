@@ -4,6 +4,8 @@ import lombok.RequiredArgsConstructor;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import com.crio.jobsearch.dto.Jobdto;
 import com.crio.jobsearch.exchange.GetJobRequest;
 import com.crio.jobsearch.exchange.GetJobResponse;
@@ -28,7 +30,7 @@ public class JobsPortalController {
   public static final String BASE_URL = "/jobs";
 
   @PutMapping(BASE_URL)
-  public ResponseEntity<String> saveJob(@RequestBody Jobdto jobEntry) {
+  public ResponseEntity<String> saveJob(@RequestBody @Valid Jobdto jobEntry) {
     String jobId = jobService.saveJob(jobEntry);
     
     String response = "Job created with ID :" + jobId;

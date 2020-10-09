@@ -1,0 +1,43 @@
+[
+    {
+        "companyName":"Deloitte",
+        "location":"Hyderabad",
+        "jobDescription":"SDE 2",
+        "skillKeywords":["React", "nodejs", "express"],
+        "jobTitle":"Software developer",
+        "expiryDuration":34
+    },
+    {
+        "companyName":"Freecharge",
+        "location":"Bangalore",
+        "jobDescription":"Backend developer",
+        "skillKeywords":["Java", "Spring boot"],
+        "jobTitle":"Software developer",
+        "expiryDuration":34
+    },
+    {
+        "companyName":"Big Basket",
+        "location":"Noida",
+        "jobDescription":"SDE 2",
+        "skillKeywords":["React", "nodejs", "express"],
+        "jobTitle":"Software developer",
+        "expiryDuration":90
+    },
+    {
+        "companyName":"Dream 11",
+        "location":"Bangalore",
+        "jobDescription":"SDE 1",
+        "skillKeywords":["React", "nodejs", "express"],
+        "jobTitle":"Software developer"
+    },
+    {
+        "companyName":"Cred",
+        "location":"Hyderabad",
+        "jobDescription":"Full stack developer",
+        "skillKeywords":["React", "nodejs", "express"],
+        "jobTitle":"Software developer",
+        "expiryDuration":23
+    }
+
+
+]
