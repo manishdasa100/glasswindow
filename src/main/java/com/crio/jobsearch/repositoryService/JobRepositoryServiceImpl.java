@@ -22,9 +22,7 @@ public class JobRepositoryServiceImpl implements JobRepositoryService {
 
     private ModelMapper modelMapper = new ModelMapper();
 
-    private boolean isJobActiveAndRelavant(Jobentity jobentity, List<String> candidateSkills) {
-
-        LocalDate expiryDate = jobentity.getExpiryDate();
+    private boolean isJobActiveAndRelavant(LocalDate expiryDate, List<String> requiredSkills, List<String> candidateSkills) {
 
         LocalDate currentDate = LocalDate.now();
 
@@ -32,10 +30,10 @@ public class JobRepositoryServiceImpl implements JobRepositoryService {
             return false;
         }
 
-        List<String> requiredSkills = jobentity.getSkillKeywords();
-
         for (String candidateSkill : candidateSkills) {
+            candidateSkill = candidateSkill.toLowerCase();
             for (String requiredSkill : requiredSkills) {
+                requiredSkill = requiredSkill.toLowerCase();
                 if (candidateSkill.equals(requiredSkill)) {
                     return true;
                 }
@@ -59,13 +57,14 @@ public class JobRepositoryServiceImpl implements JobRepositoryService {
     @Override
     public List<Jobdto> getActiveJobs(String location, List<String> candidateSkills) {
         
-        Query query = new Query(Criteria.where("location").is(location));
+        // Case insensitive query with "i" option.
+        Query query = new Query(Criteria.where("location").regex("^"+location+"$","i"));
         List<Jobentity> allJobentities = mongoTemplate.find(query, Jobentity.class);
 
         List<Jobdto> activeRelevantJobs = new ArrayList<>();
 
         for (Jobentity jobentity : allJobentities) {
-            if (isJobActiveAndRelavant(jobentity, candidateSkills)) {
+            if (isJobActiveAndRelavant(jobentity.getExpiryDate(), jobentity.getSkillKeywords(), candidateSkills)) {
                 activeRelevantJobs.add(modelMapper.map(jobentity, Jobdto.class));
             }
         }
