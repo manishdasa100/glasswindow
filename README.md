@@ -1,26 +1,15 @@
-This file can be used as a template for initializing and running spring projects.
-
-What's included: 
-1. Gradle file created from start.spring.io
-2. Plugins for Spotbugs, Checkstyle and Jacoco included
-3. Other dependencies like Mongo, MySql and redis.
-4. Dockerfile to start mongo server and run the spring boot application within.
-
-Usage - 
-
-1. To build the repository - 
-
-From the repository root, 
-
-1. run `./gradlew build test`run the build
-2. run `./gradlew bootjar` to create executable jar. The jar will be located inside build directories.
-
-To run inside docker container, use below commands
-
-To build docker image, use the command below - `docker build -t your_tag_name  .`
-
-To run the generated container, use this command - `docker run -p8080:8080 your_tag_name`. This will run the server on 8080 port.. You can change the ports as per your needs. 
-
-
-License - 
-While this repository is licensed under APACHE 2.0 license, It is mandatory for users to share the readme.md and License file along with the changes they do in the contents.
+<h2>glasswindow</h2>
+<p>A simple job portal web application. It has two main APIs exposed. You can access them through<br> 1. GET(http://host:8081/jobs?skillKeywords=&location=) to get the active jobs based on skillKeywords and location.<br> 2. PUT(http://host:8081/jobs) to put a new job into the database. The application has a MVCS structure and I have tested the repository service layer, which has the primary functionalities. It has a simple static webpage attached(index.html) to help with the UI. </p>
+<hr>
+<h3>Environment setup</h3>
+1. JDK 12.0.2<br>
+2. Gradle 6.6.1<br>
+3. MongoDB 4.4.0<br>
+<hr>
+<h3>Running the application</h3>
+1. Run mongoDB server on your local machine(I have currently not used a mongo cluster, which is subject to change in future. I will updtae it here accordingly).<br>
+2. Type ./gradlew bootrun.<br>
+3. Open http://localhost:8081/index.html in your browser.<br>
+<hr>
+<h3>Authors</h3>
+Manish Das(manishdasa100@gmail.com)<br>

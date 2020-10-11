@@ -40,10 +40,6 @@
                 margin-bottom: 10px;
             }
 
-            /* .job ul {
-                list-style: none;
-            } */
-
             #output {
                 position: relative;
             }
@@ -85,6 +81,10 @@
                 background-color: rgb(255, 133, 133);
                 color: #000;
                 padding-top: 5px;
+            }
+
+            .jobDescription {
+                font-size: 6px;
             }
             
         </style>
@@ -300,15 +300,15 @@
 
                                 output += 
                                 '<div class="job row justify-content-center rounded">'+
-                                    '<div class="col-sm-5">'+
+                                    '<div class="col-sm-3">'+
                                         '<ul class="list-unstyled">'+
                                         '<li><b>'+ jobs[i].jobTitle +'</b></li>'+
                                         '<li>Company name : '+ jobs[i].companyName +'</li>'+
                                         '</ul>'+
                                     '</div>'+
-                                    '<div class="col-sm-5">'+
+                                    '<div class="col-sm-7">'+
                                         '<p><b>Job description :</b></p>'+
-                                        jobDesc+
+                                        '<p>'+jobDesc+'</p>'+
                                     '</div>'+
                                 '</div>'; 
                             }
